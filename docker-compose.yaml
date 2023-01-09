@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  fe_timelineapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: 10.15.24.212:8083/fragua-services-test/fe-timeline-app:0.0.3
+    container_name: fe_timelineapp
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - '${PORT}:${PORT}'
+    environment:
+      VITE_BACKEND_URL: '${VITE_BACKEND_URL}'

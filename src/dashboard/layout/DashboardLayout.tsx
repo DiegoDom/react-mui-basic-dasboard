@@ -1,11 +1,7 @@
-import { FC, ReactNode } from 'react';
+import { Outlet } from 'react-router-dom';
 import { Navbar, SideMenu } from '../components';
 
-interface Props {
-  children: ReactNode;
-}
-
-export const DashboardLayout: FC<Props> = ({ children }) => {
+export const DashboardLayout = () => {
   return (
     <>
       <nav>
@@ -20,9 +16,8 @@ export const DashboardLayout: FC<Props> = ({ children }) => {
           padding: '0px 30px',
         }}
       >
-        {children}
+        <Outlet />
       </main>
-      <footer>{/* //TODO: Footer */}</footer>
     </>
   );
 };

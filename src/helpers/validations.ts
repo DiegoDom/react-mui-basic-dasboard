@@ -11,3 +11,15 @@ export const isValidEmail = (email: string): boolean => {
 export const isEmail = (email: string): string | undefined => {
   return isValidEmail(email) ? undefined : 'El correo no parece ser válido';
 };
+
+export const isValidPassword = (password: string): boolean => {
+  const match = String(password).match(/(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/);
+
+  return !!match;
+};
+
+export const isPassword = (password: string): string | undefined => {
+  return isValidPassword(password)
+    ? undefined
+    : 'La contraseña debe tener una mayuscula, minusculas y numeros';
+};

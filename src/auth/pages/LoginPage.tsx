@@ -1,8 +1,8 @@
-import { Box, Link, Typography, Grid, TextField, Button } from '@mui/material';
+import { Box, Typography, Grid, TextField, Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { AppLogo } from '~/components';
 
-import { AuthLayout } from '../layout';
 import { validations } from '~/helpers';
 
 type FormData = {
@@ -25,7 +25,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <AuthLayout>
+    <>
       <form onSubmit={handleSubmit(onLoginUser)} noValidate>
         <Box
           sx={{
@@ -35,10 +35,9 @@ export const LoginPage = () => {
           }}
           className='summary-card'
         >
-          <Link display={'flex'} alignItems={'center'} justifyContent='center' sx={{ mb: 2 }}>
-            <Typography variant='h6'>FG |</Typography>
-            <Typography sx={{ ml: 0.5 }}>Dashboard</Typography>
-          </Link>
+          <Box display='flex' justifyContent='center' padding={2}>
+            <AppLogo />
+          </Box>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Typography variant='h1' component='h1'>
@@ -91,6 +90,6 @@ export const LoginPage = () => {
           </Grid>
         </Box>
       </form>
-    </AuthLayout>
+    </>
   );
 };

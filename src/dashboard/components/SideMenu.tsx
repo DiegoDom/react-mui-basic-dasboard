@@ -3,10 +3,10 @@ import {
   Divider,
   Drawer,
   List,
-  ListItem,
   ListItemIcon,
   ListItemText,
   ListSubheader,
+  ListItemButton,
 } from '@mui/material';
 import LoginOutlined from '@mui/icons-material/LoginOutlined';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
@@ -32,7 +32,7 @@ export const SideMenu = () => {
   return (
     <Drawer
       open={menuOpen}
-      anchor='right'
+      anchor='left'
       sx={{ backdropFilter: 'blur(4px)', transition: 'all 0.5s ease-out' }}
       onClose={onToggleMenu}
     >
@@ -40,30 +40,30 @@ export const SideMenu = () => {
         <List>
           <ListSubheader>Bienvenido Diego Dominguez</ListSubheader>
           <Divider />
-          <ListItem button>
+          <ListItemButton onClick={() => navigateTo('/')}>
             <ListItemIcon>
               <DashboardOutlinedIcon />
             </ListItemIcon>
             <ListItemText primary={'Dashboard'} />
-          </ListItem>
-          <ListItem button>
+          </ListItemButton>
+          <ListItemButton onClick={() => navigateTo('/tables')}>
             <ListItemIcon>
               <ViewListOutlinedIcon />
             </ListItemIcon>
             <ListItemText primary={'Tablas'} />
-          </ListItem>
+          </ListItemButton>
         </List>
       </Box>
       <Box flex={1} />
       <Box sx={{ width: 250, paddingTop: 5 }}>
         <List>
           <Divider />
-          <ListItem button onClick={() => navigateTo('/auth/login')}>
+          <ListItemButton onClick={() => navigateTo('/auth/login')}>
             <ListItemIcon>
               <LoginOutlined />
             </ListItemIcon>
             <ListItemText primary={'Cerrar sesión'} />
-          </ListItem>
+          </ListItemButton>
         </List>
       </Box>
     </Drawer>

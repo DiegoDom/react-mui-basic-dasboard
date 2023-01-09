@@ -1,11 +1,7 @@
-import { FC, ReactNode } from 'react';
+import { Outlet } from 'react-router-dom';
 import { Box } from '@mui/material';
 
-interface Props {
-  children: ReactNode;
-}
-
-export const AuthLayout: FC<Props> = ({ children }) => {
+export const AuthLayout = () => {
   return (
     <>
       <main>
@@ -16,7 +12,7 @@ export const AuthLayout: FC<Props> = ({ children }) => {
           flexDirection='column'
           height='calc(100vh - 200px)'
         >
-          {children}
+          <Outlet />
         </Box>
       </main>
     </>
